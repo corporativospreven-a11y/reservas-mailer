@@ -4,7 +4,7 @@ const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
 const nodemailer = require('nodemailer');
 
-initializeApp({ credential: cert(JSON.parse(process.env.FIREBASE_SA)) });
+initializeApp({ credential: cert(JSON.parse((process.env.FIREBASE_SA || '').trim())) });
 const db = getFirestore();
 
 const transport = nodemailer.createTransport({
