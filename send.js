@@ -46,6 +46,9 @@ function compose(m, byNombre, byUser) {
         subject: `Equipo ${d.accion==='alta'?'agregado':(d.accion==='baja'?'eliminado':'modificado')} · ${d.equipo||''}`,
         html: `<p><b>${m.creadoPor||''}</b> ${acc} el equipo <b>${d.equipo||''}</b>${d.anterior&&d.anterior!==d.equipo?` (antes: ${d.anterior})`:''}.</p>` };
     }
+    case 'test':
+      return { to: AGUSTIN, subject: `Prueba robot nube${d.nota?' · '+d.nota:''}`,
+        html: `<p>Prueba de envío desde GitHub Actions (la nube). Si recibís esto, el robot manda correos correctamente con la PC apagada.</p>` };
     default: return null;
   }
 }
